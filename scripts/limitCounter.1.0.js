@@ -18,39 +18,27 @@ $.fn.limitCounter = function(options)
 	}
 	
 	var options = $.extend(defaults, options);
+
+	var el = $(this);
 	
-	//Remove if a character counter already exists
-	if($(this).next('.characterCounter').size() > 0){ $('.characterCounter').remove();}
+	var elementID = el.attr('id');
+	var counter = '<span class="characterCounter ' + options.counterClass + '">' + options.limit + ' ' + options.suffix + '</span>';
 	
-	var elementID = $(this).attr('id');
-	var counter = '<span rel="' + elementID + '" class="characterCounter ' + options.counterClass + '">' + options.limit + ' ' + options.suffix + '</span>';
+	el.after(counter);
 	
-	$(this).after(counter);
-	
-	$(this).live('keyup', function(){
+	el.on('keyup', function(){
 		
-		var value = $(this).val();
+		var value = el.val();
 		var totalChars = value.length;
 		var charsLeft = options.limit - totalChars;
 		
-		if(totalChars > options.limit)
-		{
-		
-			$(this).val(value.substr(0, options.limit));
-			
-		}
-		else
-		{
-		
-			if(charsLeft >= 0)
-			{
-		
-				$(this).next('.characterCounter').html(charsLeft + ' ' + options.suffix);
-				
+		if(totalChars > options.limit) {
+			el.val(value.substr(0, options.limit));
+		} else {
+			if(charsLeft >= 0) {
+				el.next('.characterCounter').html(charsLeft + ' ' + options.suffix);
 			}
-			
 		}
-		
-	});
 
+	});
 }
