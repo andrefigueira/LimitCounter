@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Limit Counter, Simply Element Limiter, jQuery Plugin</title>
+	<link rel="stylesheet" href="style/style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Six+Caps' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<script src="scripts/limitCounter.1.0.js"></script>
+	<script>
+		
+		$(document).ready(function(){
+			
+			$('input').limitCounter({
+				limit: 140,
+				counterClass: 'input'
+			});
+			
+			$('textarea').limitCounter({
+				limit: 140
+			});
+			
+		});
+		
+	</script>
+</head>
+<body>
+		
+	<h1>Limit Counter 1.0</h1>
+	
+	<div class="container">
+		
+		<p class="intro">A lightweight plugin that allows you to very easily limit inputs &amp; textareas.</p>
+		
+		<div class="subContainer">
+		
+			<h2>Usage</h2>
+			
+			<p>Using Limit Counter is so dam easy! Just include the file then make a call to it as per the example no 
+			need to modify any exiting html just CSS so make the limit counter appear where you want... Just follow 
+			the examples below or download the Github example.</p>
+		
+			<h2>JavaScript</h2>
+			
+			<pre>
+$(document).ready(function(){
+			
+	$('input').limitCounter({
+		limit: 140,
+		counterClass: 'input',
+		suffix: 'characters left'
+	});
+	
+	$('textarea').limitCounter({
+		limit: 140
+	});
+	
+});
+</pre>
+
+<p>There are a few custom variables you can set, those are show above in the example of the input...</p>
+		
+			<h2>HTML</h2>
+			
+<pre>
+
+&lt;input type="text" name="test2" id="test2" placeholder="Type something in this text input!" />
+			
+&lt;textarea name="test" id="test" placeholder="Type something in this textarea">&lt;textarea>
+
+</pre>
+						
+			<h2>Preview</h2>
+			
+			<input type="text" name="test2" id="test2" placeholder="Type something in this text input!" />
+			
+			<textarea name="test" id="test" placeholder="Type something in this textarea"></textarea>
+		
+		</div><!-- End sub container -->
+		
+	</div><!-- End container -->
+	
+</body>
+</html>
